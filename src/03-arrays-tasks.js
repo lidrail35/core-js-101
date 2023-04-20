@@ -54,8 +54,9 @@ function findElement(arr, value ) {
  *    [0, 1, 2, 3, 4, 5] => [0, 1, 2, 3, 4, 5,   0, 1, 2, 3, 4, 5]
  *    [] => []
  */
-function doubleArray(/* arr */) {
-  throw new Error('Not implemented');
+function doubleArray(arr) {
+  arr.length = arr.length*2; 
+  return arr.copyWithin(arr.length/2, 0);
 }
 
 
