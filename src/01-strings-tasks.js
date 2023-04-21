@@ -275,8 +275,13 @@ function isString(value) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(/* value */) {
-  throw new Error('Not implemented');
+function getCardId(value) {
+  const card = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+  const suits = ['♣', '♦', '♥', '♠'];
+
+  let x = card.indexOf(value.slice(0, -1));
+  let y = suits.indexOf(value.slice(-1));
+  return (x + 12 * y + y);
 }
 
 
