@@ -66,7 +66,7 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-  return value.slice(value.indexOf(' ')+1, value.length-1 );
+  return value.slice(value.indexOf(' ') + 1, value.length - 1);
 }
 
 
@@ -127,9 +127,9 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-  let a = str.indexOf(value);
-  let b = value.length;
-  return str.slice(0, a) + str.slice(a + b) ;
+  const a = str.indexOf(value);
+  const b = value.length;
+  return str.slice(0, a) + str.slice(a + b);
 }
 
 /**
@@ -206,10 +206,10 @@ function extractEmails(str) {
  */
 function getRectangleString(width, height) {
   let str = `┌${'─'.repeat(width - 2)}┐\n`;
-      for (let i = 0; i < height - 2; i++) {
-        str += `│${' '.repeat(width - 2)}│\n`; 
-      }
-    str += `└${'─'.repeat(width - 2)}┘\n`;
+  for (let i = 0; i < height - 2; i += 1) {
+    str += `│${' '.repeat(width - 2)}│\n`;
+  }
+  str += `└${'─'.repeat(width - 2)}┘\n`;
   return str;
 }
 
@@ -234,20 +234,20 @@ function encodeToRot13(str) {
   let offs;
   let out = '';
   let code;
-  
-    for (let i = 0; i < str.length; i++) {
-      if ( (str[i] >= 'a') && (str[i] <= 'z') ||
-           (str[i] >= 'A') && (str[i] <= 'Z') ) {
-        if ( (str[i] >= 'a') && (str[i] <= 'z') ) { 
-          offs = 97;
-        } else { 
-          offs = 65; 
-        }
-  
-        code = str[i].charCodeAt();
-        out += String.fromCharCode( (code-offs+13)%26 +offs);
-      } else out += str[i];
-    }
+
+  for (let i = 0; i < str.length; i += 1) {
+    if (((str[i] >= 'a') && (str[i] <= 'z'))
+           || ((str[i] >= 'A') && (str[i] <= 'Z'))) {
+      if ((str[i] >= 'a') && (str[i] <= 'z')) {
+        offs = 97;
+      } else {
+        offs = 65;
+      }
+
+      code = str[i].charCodeAt();
+      out += String.fromCharCode(((code - offs + 13) % 26) + offs);
+    } else out += str[i];
+  }
   return out;
 }
 
@@ -265,7 +265,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  return ( (typeof value === 'string') || (value instanceof String) ) ? true : false;
+  return !!(((typeof value === 'string') || (value instanceof String)));
 }
 
 /**
@@ -296,8 +296,8 @@ function getCardId(value) {
   const card = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
   const suits = ['♣', '♦', '♥', '♠'];
 
-  let x = card.indexOf(value.slice(0, -1));
-  let y = suits.indexOf(value.slice(-1));
+  const x = card.indexOf(value.slice(0, -1));
+  const y = suits.indexOf(value.slice(-1));
   return (x + 12 * y + y);
 }
 

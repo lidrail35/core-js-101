@@ -71,7 +71,7 @@ function getAverage(/* value1, value2 */) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
-  return Math.sqrt( (x2 - x1)**2 + (y2 - y1)**2);
+  return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
 }
 
 /**
@@ -110,11 +110,11 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  let scalarImul = x1*x2 + y1*y2;
-  let moduleA = Math.sqrt(x1*x1 + y1*y1);
-  let moduleB = Math.sqrt(x2*x2 + y2*y2);
-  let cosAngle = scalarImul / (moduleA * moduleB);
-  let angle = Math.acos(cosAngle);
+  const scalarImul = x1 * x2 + y1 * y2;
+  const moduleA = Math.sqrt(x1 * x1 + y1 * y1);
+  const moduleB = Math.sqrt(x2 * x2 + y2 * y2);
+  const cosAngle = scalarImul / (moduleA * moduleB);
+  const angle = Math.acos(cosAngle);
   return angle;
 }
 
@@ -131,7 +131,7 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-  str = '' + value;
+  const str = `${value}`;
   return +str[str.length - 1];
 }
 
@@ -165,7 +165,7 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelepipedDiagonal(a, b, c) {
-  return Math.sqrt(a*a + b*b + c*c);
+  return Math.sqrt(a * a + b * b + c * c);
 }
 
 
@@ -187,7 +187,7 @@ function getParallelepipedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  return Math.round(num / (10**pow)) * (10**pow);
+  return Math.round(num / (10 ** pow)) * (10 ** pow);
 }
 
 /**
@@ -208,9 +208,9 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-  if (n===2) return true;
-  for (let i = 2; i <= n/2+1; i++) {
-    if ( n/i === Math.round(n / i) ) return false;
+  if (n === 2) return true;
+  for (let i = 2; i <= n / 2 + 1; i += 1) {
+    if (n / i === Math.round(n / i)) return false;
   }
   return true;
 }
@@ -231,8 +231,8 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  if (isNaN(value) || !value) return def;
-    else return value;
+  if ((Number.isNaN(+value)) || !value) return def;
+  return value;
 }
 
 module.exports = {
